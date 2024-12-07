@@ -1,17 +1,17 @@
 import 'package:dio/dio.dart';
 import 'package:either_dart/either.dart';
+import 'package:nextflix/data/data_sources/http_data_source.dart';
 import 'package:nextflix/data/data_sources/movies_data_source.dart';
 import 'package:nextflix/data/local/secure_storage.dart';
 import 'package:nextflix/data/model/error_msg.dart';
 import 'package:nextflix/data/model/movies.dart';
 import 'package:nextflix/data/remote/handle_dio_exception.dart';
-import 'package:nextflix/data/remote/http_client.dart';
 import 'package:nextflix/utils/env/env_config.dart';
 
 class MoviesRepoImpl extends MoviesDataSource {
-  final HttpClient httpClient;
+  final HttpDataSource httpClient;
   final SecureStorage secureStorage;
-  MoviesRepoImpl({required this.httpClient, required this.secureStorage});
+  MoviesRepoImpl(this.httpClient, this.secureStorage);
 
   @override
   Future<Either<ErrorMsg, Movies>> getHighLightMovies() async {

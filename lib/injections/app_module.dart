@@ -1,6 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:nextflix/data/data_sources/http_data_source.dart';
+import 'package:nextflix/data/data_sources/movies_data_source.dart';
+import 'package:nextflix/data/data_sources/onboard_data_source.dart';
+import 'package:nextflix/data/data_sources/profiles_data_source.dart';
 import 'package:nextflix/data/local/secure_storage.dart';
 import 'package:nextflix/data/remote/http_client.dart';
 import 'package:nextflix/data/repository/onboard_repo_impl.dart';
@@ -21,11 +25,11 @@ class AppModule extends Module {
   @override
   void binds(i) {
     i.addInstance<SecureStorage>(SecureStorage(flutterSecureStorage));
-    i.addInstance<HttpClient>(HttpClient(dio, secureStorage));
+    i.addInstance<HttpDataSource>(HttpClient(dio, secureStorage));
 
-    i.addSingleton<OnboardRepoImpl>(OnboardRepoImpl.new);
-    i.addSingleton<ProfilesRepoImpl>(ProfilesRepoImpl.new);
-    i.addSingleton<MoviesRepoImpl>(MoviesRepoImpl.new);
+    i.addSingleton<OnboardDataSource>(OnboardRepoImpl.new);
+    i.addSingleton<ProfilesDataSource>(ProfilesRepoImpl.new);
+    i.addSingleton<MoviesDataSource>(MoviesRepoImpl.new);
 
     i.addSingleton<OnboardUseCase>(OnboardUseCase.new);
     i.addSingleton<ProfilesUseCase>(ProfilesUseCase.new);

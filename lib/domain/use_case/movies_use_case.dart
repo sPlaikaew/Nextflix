@@ -2,33 +2,32 @@ import 'package:either_dart/either.dart';
 import 'package:nextflix/data/data_sources/movies_data_source.dart';
 import 'package:nextflix/data/model/error_msg.dart';
 import 'package:nextflix/data/model/movies.dart';
-import 'package:nextflix/data/repository/movies_repo_impl.dart';
 
 class MoviesUseCase {
-  final MoviesRepoImpl moviesRepo;
-  MoviesUseCase({required this.moviesRepo});
+  final MoviesDataSource moviesDataSource;
+  MoviesUseCase(this.moviesDataSource);
   Future<Either<ErrorMsg, Movies>> getHighLightMovies() async {
-    final highLightMovies = await moviesRepo.getHighLightMovies();
+    final highLightMovies = await moviesDataSource.getHighLightMovies();
     return highLightMovies;
   }
 
   Future<Either<ErrorMsg, Movies>> getTrendMovies() async {
-    final trendMovies = await moviesRepo.getTrendMovies();
+    final trendMovies = await moviesDataSource.getTrendMovies();
     return trendMovies;
   }
 
   Future<Either<ErrorMsg, Movies>> getMustWatchMovies() async {
-    final mustWatchMovies = await moviesRepo.getMustWatchMovies();
+    final mustWatchMovies = await moviesDataSource.getMustWatchMovies();
     return mustWatchMovies;
   }
 
   Future<Either<ErrorMsg, Movies>> getMyMovies() async {
-    final mustWatchMovies = await moviesRepo.getMyMovies();
+    final mustWatchMovies = await moviesDataSource.getMyMovies();
     return mustWatchMovies;
   }
 
   Future<Either<ErrorMsg, Movie>> getMovieDetail(String movieID) async {
-    final movieDetail = await moviesRepo.getMovieDetail(movieID);
+    final movieDetail = await moviesDataSource.getMovieDetail(movieID);
     return movieDetail;
   }
 }

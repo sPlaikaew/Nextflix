@@ -1,17 +1,17 @@
 import 'package:dio/dio.dart';
 import 'package:either_dart/either.dart';
+import 'package:nextflix/data/data_sources/http_data_source.dart';
 import 'package:nextflix/data/data_sources/profiles_data_source.dart';
 import 'package:nextflix/data/local/secure_storage.dart';
 import 'package:nextflix/data/model/error_msg.dart';
 import 'package:nextflix/data/model/profile.dart';
 import 'package:nextflix/data/remote/handle_dio_exception.dart';
-import 'package:nextflix/data/remote/http_client.dart';
 import 'package:nextflix/utils/env/env_config.dart';
 
 class ProfilesRepoImpl extends ProfilesDataSource {
-  final HttpClient httpClient;
+  final HttpDataSource httpClient;
   final SecureStorage secureStorage;
-  ProfilesRepoImpl({required this.httpClient, required this.secureStorage});
+  ProfilesRepoImpl(this.httpClient, this.secureStorage);
 
   @override
   Future<Either<ErrorMsg, List<Profile>>> getAllProfiles() async {
