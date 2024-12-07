@@ -16,13 +16,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 void main() {
   Modular.setInitialRoute(OnboardPageType.login.path);
   final apiClient = createApiClient(EnvConfig.baseURL);
-  const flutterSecureStorage = FlutterSecureStorage();
-  final secureStorage = SecureStorage(flutterSecureStorage);
+  final secureStorage = SecureStorage(const FlutterSecureStorage());
   runApp(
     ModularApp(
       module: AppModule(
         apiClient,
-        flutterSecureStorage,
         secureStorage,
       ),
       child: const MyApp(),

@@ -1,7 +1,7 @@
 class EnvConfig {
   static const baseURL = 'https://mock.apidog.com/m1/738246-0-default';
-  static const accessTokenKey = 'nextflix';
-  static const refreshToken = 'nextflix';
+  static const accessTokenKey = 'access_nextflix';
+  static const refreshToken = 'refresh_nextflix';
   static const testConnectTimeOut = 'https://httpbin.org/delay/10';
   static const testReceiveTimeout = 'https://httpbin.org/delay/10';
   static const testResponse401 = 'https://httpstat.us/401';

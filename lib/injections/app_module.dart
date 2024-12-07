@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:nextflix/data/data_sources/http_data_source.dart';
 import 'package:nextflix/data/data_sources/movies_data_source.dart';
 import 'package:nextflix/data/data_sources/onboard_data_source.dart';
 import 'package:nextflix/data/data_sources/profiles_data_source.dart';
+import 'package:nextflix/data/data_sources/secure_storage_data_source.dart';
 import 'package:nextflix/data/local/secure_storage.dart';
 import 'package:nextflix/data/remote/http_client.dart';
 import 'package:nextflix/data/repository/onboard_repo_impl.dart';
@@ -19,12 +19,11 @@ import 'package:nextflix/presentation/setting/bloc/setting_bloc.dart';
 
 class AppModule extends Module {
   final Dio dio;
-  final FlutterSecureStorage flutterSecureStorage;
   final SecureStorage secureStorage;
-  AppModule(this.dio, this.flutterSecureStorage, this.secureStorage);
+  AppModule(this.dio, this.secureStorage);
   @override
   void binds(i) {
-    i.addInstance<SecureStorage>(SecureStorage(flutterSecureStorage));
+    i.addInstance<SecureStorageDataSource>(secureStorage);
     i.addInstance<HttpDataSource>(HttpClient(dio, secureStorage));
 
     i.addSingleton<OnboardDataSource>(OnboardRepoImpl.new);

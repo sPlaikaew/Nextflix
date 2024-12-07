@@ -1,14 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:nextflix/data/data_sources/http_data_source.dart';
-import 'package:nextflix/data/local/secure_storage.dart';
+import 'package:nextflix/data/data_sources/secure_storage_data_source.dart';
 import 'package:nextflix/data/model/token.dart';
 import 'package:nextflix/utils/env/env_config.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class HttpClient extends HttpDataSource {
   final Dio dio;
-  final SecureStorage secureStorage;
+  final SecureStorageDataSource secureStorage;
   HttpClient(this.dio, this.secureStorage) {
     dio.interceptors.add(interceptorsRequestWrapper());
     dio.interceptors.add(interceptorsRefreshTokenWrapper());
@@ -23,9 +23,14 @@ class HttpClient extends HttpDataSource {
 
   InterceptorsWrapper interceptorsRequestWrapper() => InterceptorsWrapper(
         onRequest: (options, handler) async {
+          String? token =
+              await secureStorage.readData(EnvConfig.accessTokenKey);
           options.headers['Content-Type'] = 'application/json';
           options.headers["x-api-key"] = "ANY";
           options.headers['Accept-Language'] = "EN";
+          if (token != null) {
+            options.headers['Authorization'] = "Bearer $token";
+          }
           return handler.next(options);
         },
       );
