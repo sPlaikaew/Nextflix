@@ -1,0 +1,36 @@
+homePage:
+  trendingNow: Trending Now
+  mustWatch: Must-Watch
+  continueWatching: Continue Watching for
+  onlyNextFlix: Only on NETFLIX
+searchPage:
+  searchHint: Search anime, movies, shows..
+  recommend: Recommended Animes & Movies
+detailPage:
+  collection: Collection
+  moreLikeThis: More Like This
+selectProfilePage:
+  whoWatch: Who’s Watching?
+signInPage:
+  enterEmail: Enter email
+  enterPassword: Enter password
+  signIn: Sign in
+  forgotPassword: Forgot password?
+  noAccount: Don’t have an account?
+  createOne: Create one
+language:
+  language: Language
+common:
+  home: Home
+  coming: Coming soon
+  search: Search
+  downloads: Downloads
+  menu: Menu
+  refresh: Refresh
+  play: Play
+  myList: My list
+  rate: Rate
+  share: Share
+  edit: Edit
+  tryAgain: Try again
+  save: Save

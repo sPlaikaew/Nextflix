@@ -1,0 +1,36 @@
+homePage:
+  trendingNow: มาแรง
+  mustWatch: ต้องดู
+  continueWatching: รับชมต่อ
+  onlyNextFlix: เฉพาะที่เน็ตฟลิกซ์
+searchPage:
+  searchHint: ค้นหา อนิเมะ, หนัง, อื่นๆ..
+  recommend: หนังและอนิเมะแนะนำ
+detailPage:
+  collection: คอลเลคชั่น
+  moreLikeThis: ที่คล้ายกัน
+selectProfilePage:
+  whoWatch: ใครกำลังดู ?
+signInPage:
+  enterEmail: กรอกอีเมล
+  enterPassword: กรอกรหัสผ่าน
+  signIn: เข้าสู่ระบบ
+  forgotPassword: ลืมรหัสผ่าน?
+  noAccount: ยังไม่มีบัญชี?
+  createOne: สร้างใหม่
+language:
+  language: ภาษา
+common:
+  home: หน้าแรก
+  coming: กำลังมา
+  search: ค้นหา
+  downloads: ดาวน์โหลด
+  menu: เมนู
+  refresh: รีเฟรช
+  play: เล่น
+  myList: รายการของฉัน
+  rate: เรท
+  share: แชร์
+  edit: แก้ไข
+  tryAgain: ลองอีกครั้ง
+  save: บันทึก
