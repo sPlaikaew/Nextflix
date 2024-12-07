@@ -1,14 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:nextflix/data/data_sources/http_data_source.dart';
-import 'package:nextflix/data/data_sources/secure_storage_data_source.dart';
+import 'package:nextflix/data/local/secure_storage_access.dart';
+import 'package:nextflix/data/remote/http_request.dart';
 import 'package:nextflix/data/model/token.dart';
 import 'package:nextflix/utils/env/env_config.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-class HttpClient extends HttpDataSource {
+class HttpClient extends HttpRequest {
   final Dio dio;
-  final SecureStorageDataSource secureStorage;
+  final SecureStorageAccess secureStorage;
   HttpClient(this.dio, this.secureStorage) {
     dio.interceptors.add(interceptorsRequestWrapper());
     dio.interceptors.add(interceptorsRefreshTokenWrapper());

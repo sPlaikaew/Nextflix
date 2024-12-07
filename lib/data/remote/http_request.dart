@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-abstract class HttpDataSource {
+abstract class HttpRequest {
   Future<Response> get(
     String path, {
     dynamic headers,

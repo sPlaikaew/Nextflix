@@ -1,7 +1,7 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:nextflix/data/data_sources/secure_storage_data_source.dart';
+import 'package:nextflix/data/local/secure_storage_access.dart';
 
-class SecureStorage implements SecureStorageDataSource {
+class SecureStorage implements SecureStorageAccess {
   final FlutterSecureStorage secureStorage;
 
   SecureStorage(this.secureStorage);
