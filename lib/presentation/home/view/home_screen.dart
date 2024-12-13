@@ -107,6 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               CarouselSliderMovies(
                 highLightMovies: highLightMovies.moviesList,
+                onChanged: (int value) {},
               ),
               Positioned(
                 top: 12,
