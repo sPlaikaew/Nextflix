@@ -39,8 +39,15 @@ class HttpClient implements HttpRequest {
         onError: (e, handler) async {
           String? token =
               await secureStorage.readData(EnvConfig.accessTokenKey);
+          String? refreshToken =
+              await secureStorage.readData(EnvConfig.refreshToken);
           if (e.response?.statusCode == 401 && token != null) {
-            Response refreshResponse = await dio.post('/auth/refreshToken');
+            Response refreshResponse = await dio.post(
+              '/auth/refreshToken',
+              data: {
+                'refreshToken': refreshToken,
+              },
+            );
             if (refreshResponse.statusCode == 200) {
               Token token = Token.fromJson(refreshResponse.data);
               await secureStorage.saveData(
@@ -48,7 +55,7 @@ class HttpClient implements HttpRequest {
                 token.accessToken,
               );
               await secureStorage.saveData(
-                EnvConfig.accessTokenKey,
+                EnvConfig.refreshToken,
                 token.refreshToken,
               );
               return handler.resolve(await retry(e.requestOptions));
