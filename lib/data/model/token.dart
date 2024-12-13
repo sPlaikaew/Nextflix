@@ -23,5 +23,3 @@ class Token {
         "refreshToken": refreshToken,
       };
 }
-
-//{token: sCiJ_a3JphgZi5s, refreshToken: aOeofQ1btKh9j0I}

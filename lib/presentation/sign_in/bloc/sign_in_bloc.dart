@@ -30,7 +30,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
         ));
       },
       (right) {
-        if (right == 200) {
+        if (right) {
           emit(state.copyWith(
             loading: false,
             isError: false,

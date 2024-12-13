@@ -6,7 +6,7 @@ import 'package:nextflix/data/model/token.dart';
 import 'package:nextflix/utils/env/env_config.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-class HttpClient extends HttpRequest {
+class HttpClient implements HttpRequest {
   final Dio dio;
   final SecureStorageAccess secureStorage;
   HttpClient(this.dio, this.secureStorage) {

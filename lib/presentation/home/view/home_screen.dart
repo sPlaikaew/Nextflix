@@ -68,9 +68,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           BlocProvider.of<HomeBloc>(context)
                             ..add(GetHighLightMovies())
                             ..add(GetTrendMovies())
-                            ..add(
-                              GetMostWatchMovies(),
-                            );
+                            ..add(GetMostWatchMovies())
+                            ..add(GetMyMovies());
                         },
                         text: localizations.common.refresh,
                       )

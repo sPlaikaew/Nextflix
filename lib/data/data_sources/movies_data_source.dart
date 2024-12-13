@@ -1,11 +1,35 @@
-import 'package:either_dart/either.dart';
-import 'package:nextflix/data/model/error_msg.dart';
+import 'package:dio/dio.dart';
 import 'package:nextflix/data/model/movies.dart';
+import 'package:nextflix/data/remote/http_request.dart';
 
-abstract class MoviesDataSource {
-  Future<Either<ErrorMsg, Movies>> getHighLightMovies();
-  Future<Either<ErrorMsg, Movies>> getTrendMovies();
-  Future<Either<ErrorMsg, Movies>> getMustWatchMovies();
-  Future<Either<ErrorMsg, Movies>> getMyMovies();
-  Future<Either<ErrorMsg, Movie>> getMovieDetail(String movieID);
+class MoviesDataSource {
+  final HttpRequest httpRequest;
+  MoviesDataSource(
+    this.httpRequest,
+  );
+
+  Future<Movies> getHighLightMovies() async {
+    Response response = await httpRequest.get('/movies/high-light');
+    return Movies.fromJson(response.data);
+  }
+
+  Future<Movies> getTrendMovies() async {
+    Response response = await httpRequest.get('/movies/trend');
+    return Movies.fromJson(response.data);
+  }
+
+  Future<Movies> getMustWatchMovies() async {
+    Response response = await httpRequest.get('/movies/must-watch');
+    return Movies.fromJson(response.data);
+  }
+
+  Future<Movies> getMyMovies() async {
+    Response response = await httpRequest.get('/movies/my');
+    return Movies.fromJson(response.data);
+  }
+
+  Future<Movie> getMovieDetail(String movieID) async {
+    Response response = await httpRequest.get('/movies/$movieID');
+    return Movie.fromJson(response.data);
+  }
 }
