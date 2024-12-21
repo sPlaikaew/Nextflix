@@ -7,7 +7,12 @@ import 'package:nextflix/injections/home.dart';
 
 class CarouselSliderMovies extends StatefulWidget {
   final List<Movie> highLightMovies;
-  const CarouselSliderMovies({super.key, required this.highLightMovies});
+  final ValueChanged<int> onChanged;
+  const CarouselSliderMovies({
+    super.key,
+    required this.highLightMovies,
+    required this.onChanged,
+  });
 
   @override
   State<CarouselSliderMovies> createState() => _CarouselSliderMoviesState();
@@ -50,6 +55,7 @@ class _CarouselSliderMoviesState extends State<CarouselSliderMovies> {
               onPageChanged: (index, reason) {
                 setState(() {
                   current = index;
+                  widget.onChanged(current);
                 });
               }),
           carouselController: carouselController,
