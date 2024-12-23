@@ -1,7 +1,7 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:nextflix/data/model/movies.dart';
-import 'package:nextflix/presentation/search_movies/bloc/search_movies_bloc.dart';
+import 'package:nextflix/app/data/model/movies.dart';
+import 'package:nextflix/app/modules/search_movies/bloc/search_movies_bloc.dart';
 
 void main() {
   group('Unit test search movies', () {

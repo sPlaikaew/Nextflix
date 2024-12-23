@@ -1,25 +1,26 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:nextflix/data/data_sources/movies_data_source.dart';
-import 'package:nextflix/data/data_sources/onboard_data_source.dart';
-import 'package:nextflix/data/data_sources/profile_data_source.dart';
-import 'package:nextflix/data/data_sources/secure_storage_data_source.dart';
-import 'package:nextflix/domain/repository/movies_repo.dart';
-import 'package:nextflix/data/local/secure_storage_access.dart';
-import 'package:nextflix/data/local/secure_storage.dart';
-import 'package:nextflix/data/remote/http_client.dart';
-import 'package:nextflix/data/remote/http_request.dart';
-import 'package:nextflix/data/repository/onboard_repo_impl.dart';
-import 'package:nextflix/data/repository/movies_repo_impl.dart';
-import 'package:nextflix/data/repository/profiles_repo_impl.dart';
-import 'package:nextflix/domain/repository/onboard_repo.dart';
-import 'package:nextflix/domain/repository/profiles_repo.dart';
-import 'package:nextflix/domain/use_case/movies_use_case.dart';
-import 'package:nextflix/domain/use_case/profiles_use_case.dart';
-import 'package:nextflix/domain/use_case/onboard_use_case.dart';
+import 'package:nextflix/core/local/secure_storage.dart';
+import 'package:nextflix/core/local/secure_storage_access.dart';
+import 'package:nextflix/core/remote/http_client.dart';
+import 'package:nextflix/core/remote/http_request.dart';
 import 'package:nextflix/injections/home.dart';
 import 'package:nextflix/injections/onboard.dart';
-import 'package:nextflix/presentation/setting/bloc/setting_bloc.dart';
+
+import '../app/data/data_sources/movies_data_source.dart';
+import '../app/data/data_sources/onboard_data_source.dart';
+import '../app/data/data_sources/profile_data_source.dart';
+import '../app/data/data_sources/secure_storage_data_source.dart';
+import '../app/data/repository/movies_repo_impl.dart';
+import '../app/data/repository/onboard_repo_impl.dart';
+import '../app/data/repository/profiles_repo_impl.dart';
+import '../app/domain/repository/movies_repo.dart';
+import '../app/domain/repository/onboard_repo.dart';
+import '../app/domain/repository/profiles_repo.dart';
+import '../app/domain/use_case/movies_use_case.dart';
+import '../app/domain/use_case/onboard_use_case.dart';
+import '../app/domain/use_case/profiles_use_case.dart';
+import '../app/modules/setting/bloc/setting_bloc.dart';
 
 class AppModule extends Module {
   final Dio dio;

@@ -2,10 +2,10 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:either_dart/either.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:nextflix/data/model/error_msg.dart';
-import 'package:nextflix/data/model/movies.dart';
-import 'package:nextflix/domain/use_case/movies_use_case.dart';
-import 'package:nextflix/presentation/movie_detail/bloc/movie_detail_bloc.dart';
+import 'package:nextflix/app/data/model/error_msg.dart';
+import 'package:nextflix/app/data/model/movies.dart';
+import 'package:nextflix/app/domain/use_case/movies_use_case.dart';
+import 'package:nextflix/app/modules/movie_detail/bloc/movie_detail_bloc.dart';
 
 class MockMoviesUseCase extends Mock implements MoviesUseCase {}
 

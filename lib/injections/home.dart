@@ -1,13 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:nextflix/domain/use_case/movies_use_case.dart';
-import 'package:nextflix/presentation/home/bloc/home_bloc.dart';
-import 'package:nextflix/presentation/main/view/main_screen.dart';
-import 'package:nextflix/presentation/movie_detail/bloc/movie_detail_bloc.dart';
-import 'package:nextflix/presentation/movie_detail/view/movie_detail_screen.dart';
-import 'package:nextflix/presentation/search_movies/bloc/search_movies_bloc.dart';
-import 'package:nextflix/presentation/search_movies/view/search_movies_screen.dart';
-import 'package:nextflix/presentation/setting/bloc/setting_bloc.dart';
+
+import '../app/domain/use_case/movies_use_case.dart';
+import '../app/modules/home/bloc/home_bloc.dart';
+import '../app/modules/main/view/main_screen.dart';
+import '../app/modules/movie_detail/bloc/movie_detail_bloc.dart';
+import '../app/modules/movie_detail/view/movie_detail_screen.dart';
+import '../app/modules/search_movies/bloc/search_movies_bloc.dart';
+import '../app/modules/search_movies/view/search_movies_screen.dart';
+import '../app/modules/setting/bloc/setting_bloc.dart';
 
 enum HomePageType {
   main,

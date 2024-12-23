@@ -1,11 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:nextflix/domain/use_case/profiles_use_case.dart';
-import 'package:nextflix/domain/use_case/onboard_use_case.dart';
-import 'package:nextflix/presentation/select_profile/bloc/select_profile_bloc.dart';
-import 'package:nextflix/presentation/select_profile/view/select_profile_screen.dart';
-import 'package:nextflix/presentation/sign_in/bloc/sign_in_bloc.dart';
-import 'package:nextflix/presentation/sign_in/view/sign_in_screen.dart';
+
+import '../app/domain/use_case/onboard_use_case.dart';
+import '../app/domain/use_case/profiles_use_case.dart';
+import '../app/modules/select_profile/bloc/select_profile_bloc.dart';
+import '../app/modules/select_profile/view/select_profile_screen.dart';
+import '../app/modules/sign_in/bloc/sign_in_bloc.dart';
+import '../app/modules/sign_in/view/sign_in_screen.dart';
 
 enum OnboardPageType {
   login,
